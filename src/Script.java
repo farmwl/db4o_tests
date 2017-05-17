@@ -8,7 +8,10 @@ public class Script {
     String name;
     int version;
     ArrayList<Key> keys;
-    //ArrayList bans;
+
+    public String getName() { return name; }
+    public int getVersion() { return version; }
+    public ArrayList<Key> getKeys() { return keys; }
 
     Script(String name, int version) {
         this.name = name;
@@ -34,8 +37,12 @@ public class Script {
             boolean expired = (i % 2) == 0;
             Key key = new Key(this.name+"_"+hwid, hwid, expired);
             this.keys.add(key);
-            System.out.println("genKey: "+key.toString());
+            System.out.println("  genKey: "+key.toString());
         }
+    }
+
+    public int keysCount(){
+        return this.getKeys().size();
     }
 
     @Override
